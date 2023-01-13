@@ -1,10 +1,5 @@
 
 import React, { FC, useRef, useEffect } from 'react'
-// import {
-//     disableBodyScroll,
-//     enableBodyScroll,
-//     clearAllBodyScrollLocks
-// } from "body-scroll-lock";
 
 interface Props {
     children: any
@@ -18,17 +13,13 @@ const Sidebar: FC<Props> = ({ children, isOpen, onClose }) => {
     useEffect(() => {
         if (ref.current) {
             if (isOpen) {
-                console.log(ref.current);
-                // disableBodyScroll(ref.current);
                 document.body.classList.add("no-scroll");
             } else {
-                // enableBodyScroll(ref.current);
                 document.body.classList.remove("no-scroll");
             }
         }
 
         return () => {
-            // clearAllBodyScrollLocks();
             document.body.classList.remove("no-scroll");
         }
     }, [isOpen])

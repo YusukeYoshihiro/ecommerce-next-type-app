@@ -8,8 +8,12 @@
   .fit {
     min-height: calc(100vh - 88px);
   }
-}
+  .no-scroll {
+    overflow: hidden;
+  }
 
-.no-scroll {
-  overflow: hidden;
+  html,
+  body {
+    height: 100%;
+  }
 }
