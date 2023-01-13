@@ -1,9 +1,9 @@
 
 import cn from 'classnames'
-import { FC, useState } from 'react'
+import { ButtonHTMLAttributes, FC, useState } from 'react'
 import s from './ProductView.module.css'
-import { Container } from '@components/ui'
-import Image from "next/image"
+import { Button, Container } from '@components/ui'
+import Image from "next/legacy/image"
 import { Product } from '@common/types/product'
 import ProductSlider from '../ProductSlider'
 
@@ -15,7 +15,7 @@ const ProductView: FC<Props> = ({ product }) => {
 
     return (
         <Container>
-            <div className={cn(s.root, 'fit', "mb-5")}>
+            <div className={cn(s.root, 'fit', 'mb-5')}>
                 <div className={cn(s.productDisplay, 'fit')}>
                     <div className={s.nameBox}>
                         <h1 className={s.name}>
@@ -34,7 +34,7 @@ const ProductView: FC<Props> = ({ product }) => {
                                 <Image
                                     className={s.img}
                                     src={image.url}
-                                    alt={image.alt!}
+                                    alt={image.alt}
                                     width={1050}
                                     height={1050}
                                     quality="85"
@@ -56,13 +56,12 @@ const ProductView: FC<Props> = ({ product }) => {
                         </div>
                     </section>
                     <div>
-                        <button
-                            onClick={() => { }}
-                            aria-label="Add to Cart"
+                        <Button
                             className={s.button}
+                            onClick={() => alert('Adding to cart!')}
                         >
                             Add to Cart
-                        </button>
+                        </Button>
                     </div>
                 </div>
             </div>
