@@ -4,6 +4,7 @@ import { Footer, Navbar } from "@components/common";
 import { Sidebar } from "@components/ui";
 import { CartSidebar } from "@components/cart";
 import { useUI } from "@components/ui/context";
+import { ApiProvider } from "@framework";
 
 type CompProps = {
     children: React.ReactNode;
@@ -14,18 +15,20 @@ const Layout: FC<CompProps> = ({ children }) => {
 
     return (
         <>
-            <div className={style.root}>
-                <Navbar />
-                <Sidebar
-                    onClose={closeSidebar}
-                    isOpen={isSidebarOpen}>
-                    <CartSidebar />
-                </Sidebar>
-                <main className="fit">
-                    {children}
-                </main>
-                <Footer />
-            </div>
+            <ApiProvider>
+                <div className={style.root}>
+                    <Navbar />
+                    <Sidebar
+                        onClose={closeSidebar}
+                        isOpen={isSidebarOpen}>
+                        <CartSidebar />
+                    </Sidebar>
+                    <main className="fit">
+                        {children}
+                    </main>
+                    <Footer />
+                </div>
+            </ApiProvider>
         </>
     );
 };
