@@ -1,14 +1,12 @@
-const checkoutLineItemsAdd = `
-mutation(
-    $checkoutId: ID!,
-    $lineItems: [CheckoutLineItemInput!]!) {
-    checkoutLineItemsAdd(checkoutId: $checkoutId, lineItems: $lineItems) {
+const checkoutCreate = `
+mutation checkoutCreate($input: CheckoutCreateInput = {}){
+    checkoutCreate (input: $input){
       checkoutUserErrors {
-        field
-        message
-      }
-      checkout {
-        id
+          field
+          message
+        }
+        checkout {
+          id
         webUrl
         subtotalPriceV2{
           amount
@@ -65,4 +63,4 @@ mutation(
   }
 `;
 
-export default checkoutLineItemsAdd;
+export default checkoutCreate;

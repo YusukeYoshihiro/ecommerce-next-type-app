@@ -11,7 +11,6 @@ const getAllProductsPaths = async (config: ApiConfig): Promise<ReturnType> => {
   const { data } = await config.fetch<{ products: ProductConnection }>({
     query: getAllProductsPathsQuery,
   });
-  //   console.log(JSON.stringify(data, null, 2));
 
   const products = data.products.edges.map(({ node: { handle } }) => {
     return {
@@ -19,7 +18,6 @@ const getAllProductsPaths = async (config: ApiConfig): Promise<ReturnType> => {
     };
   });
 
-  //   console.log(products);
   return {
     products,
   };
