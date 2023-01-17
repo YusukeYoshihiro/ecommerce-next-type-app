@@ -1,4 +1,4 @@
-import { useHook, useMutationHook } from "@common/utils/use-hooks";
+import { useHook, useMutationHook } from "@common/utils/use-hook";
 
 const useAddItem = () => {
   const hook = useHook((hooks) => hooks.cart.useAddItem);
