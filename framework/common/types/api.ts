@@ -13,6 +13,7 @@ export type ApiFetcherResult<T> = {
 
 export interface ApiConfig {
   fetch<T>(options: ApiFetcherOptions): Promise<ApiFetcherResult<T>>;
+  checkoutCookie: string;
 }
 
 export type ApiFetcher<T = any> = (
@@ -22,4 +23,5 @@ export type ApiFetcher<T = any> = (
 export interface ApiProviderContext {
   hooks: ApiHooks;
   fetcher: ApiFetcher;
+  checkoutCookie: string;
 }
