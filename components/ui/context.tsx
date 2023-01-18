@@ -53,14 +53,13 @@ export const UIProvider: FC<CompProps> = ({ children }) => {
     const openSidebar = () => dispatch({ type: "OPEN_SIDEBAR" });
     const closeSidebar = () => dispatch({ type: "CLOSE_SIDEBAR" });
 
-
     const value = useMemo(() => {
         return {
             ...state,
             openSidebar,
             closeSidebar,
         }
-    }, [state.isSidebarOpen])
+    }, [state])
 
     return (
         <UIContext.Provider value={value}>
