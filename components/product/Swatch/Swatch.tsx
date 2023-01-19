@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import style from "./Swatch.module.css";
 import { Check } from '@components/icons';
 import cn from "classnames";
@@ -6,18 +6,22 @@ import { isDark } from '@lib/color';
 
 
 interface CompProps {
+    children: ReactNode | ReactNode[]
     color?: string
     label?: string
-    variant: "size" | "color" | string
-    active: boolean
+    variant?: "size" | "color" | string
+    active?: boolean
     onClick: () => void
+    size?: "sm" | "md" | "lg"
 }
 
 const Swatch: FC<CompProps> = ({
+    children,
     color,
     label,
     variant,
     active,
+    size = "md",
     ...rest
 }) => {
 
@@ -31,7 +35,7 @@ const Swatch: FC<CompProps> = ({
             [style.color]: color,
             [style.size]: variant === "size",
             [style.dark]: color && isDark(color),
-
+            [style.sm]: size === "sm"
         }
     )
 
