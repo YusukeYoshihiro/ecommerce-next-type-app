@@ -6,17 +6,17 @@ import { isDark } from '@lib/color';
 
 
 interface CompProps {
-    children: ReactNode | ReactNode[]
+    // children: ReactNode | ReactNode[]
     color?: string
     label?: string
     variant?: "size" | "color" | string
     active?: boolean
     onClick: () => void
-    size?: "sm" | "md" | "lg"
+    size?: "sm" | "md" | "lg" | string
 }
 
 const Swatch: FC<CompProps> = ({
-    children,
+    // children,
     color,
     label,
     variant,

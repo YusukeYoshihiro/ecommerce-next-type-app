@@ -41,7 +41,7 @@ export const handler: MutationHook<RemoveItemDescriptor> = {
       const { mutate: updateCart } = useCart();
       return async (input) => {
         const data = await fetch(input);
-        updateCart(data, false);
+        await updateCart(data, false);
         return data;
       };
     },
