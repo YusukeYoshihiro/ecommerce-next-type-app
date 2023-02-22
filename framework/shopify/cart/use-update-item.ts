@@ -50,7 +50,7 @@ export const handler: MutationHook<UpdateItemDescriptor> = {
       const { mutate: updateCart } = useCart();
       return async (input: any) => {
         const data = await fetch(input);
-        updateCart(data, false);
+        await updateCart(data, false);
         return data;
       };
     },

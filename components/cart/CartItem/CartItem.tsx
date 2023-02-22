@@ -84,8 +84,7 @@ const CartItem = ({
                                     color={value.hexColor}
                                     variant={option.displayName}
                                     size={`sm`}
-                                >
-                                </Swatch>
+                                />
                             )
                         }))
                     }
